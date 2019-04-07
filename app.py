@@ -2,7 +2,7 @@ import sys, json, requests
 from flask import Flask, request
 from pymessenger.bot import Bot
 
-app = Flask("MyApp2")
+app = Flask(__name__)
 ACCESS_TOKEN = 'EAAFrHY4C6aYBAKe615if1KdrP4unl8DSXs66x7ZBMviNIRZBG90flVBT52AUUjWUKu7cHE4UMgm068DO86wIc5hcBHkqO80NvYRSNZA2ZBTRRb8XRcXNQLa9APsOh18siwiuZBO8751qDx7m3OH10ZAL0jpqBA8qEu2ZCNxyi6EZBAZDZD'
 VERIFY_TOKEN = 'monicasverifytoken'
 bot = Bot(ACCESS_TOKEN)
@@ -48,5 +48,5 @@ def send_message(recipient_id, response):
     bot.send_text_message(recipient_id, response)
     return "success"
 
-
-app.run(debug=True)
+if __name__ == '_main_':
+    app.run(debug=True)
